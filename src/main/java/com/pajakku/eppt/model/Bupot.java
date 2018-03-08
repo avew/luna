@@ -12,20 +12,12 @@ import lombok.NoArgsConstructor;
  * Created by avew on 2/6/18.
  */
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "nama",
-        "count"
-})
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Bupot {
 
-    @JsonProperty("nama")
     private String nama;
-
-    @JsonProperty("count")
     private Integer count;
 }

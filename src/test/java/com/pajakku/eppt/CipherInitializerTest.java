@@ -18,6 +18,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static org.junit.Assert.assertEquals;
+
 public class CipherInitializerTest {
 
     private Key key;
@@ -55,9 +57,9 @@ public class CipherInitializerTest {
                 .build();
 
         key = Key.builder()
-                .npwp("023986557903002")
-                .name("PT.B")
-                .sn("57bWljA80it/56bcsUd3msYcFwkwUD0B7AgUSm+nfx4/c0SSFsCpyqDtpN4r1ta8")
+                .npwp("317109825721000")
+                .name("PT.Tisoledat")
+                .sn("VWxdY8RNhglVEPi4FqmLwoY47CqtfeqIEuBEsAQFCpv6ZMIVCVnDnsO1m486bcOk")
                 .expiredAt("28/02/2018")
                 .pasal(Collections.singletonList(pph21))
                 .build();
@@ -69,7 +71,7 @@ public class CipherInitializerTest {
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
         String encrypt = initializer.encrypt(cipher, toJson);
-        Assert.assertEquals("WDR+H1s9GKp9rZ0MGAbS9sWvHfMkHocgA2dgrRcmzlAo1ocQPT3KETF4glIAUccX/fpZw7d/KmvQkG2mP+nqGeJa/E6kON06FdsKauT1PPtw2nAgf6os6LzdsaEpskLtTIUbAMHqGOvoL+Qku3n5IM+eDjZer3j2IiQwozwAakX1wlUejzA9ruvdFjNB3uPNUAnFrU9vrc4Thu49iahQHdZDHiyuRQsaxkVF36D2SDe/S/Tl3TOA600x5+DVMqJusE63eoEd+kEOcMI883XoEyAh3IvjjkMb3j7nvZLHoqAB5fx5Qa2UsOjngug9B3Jc8CgD/R9nlBf52FptCx/UKGOeqWR9N/uYFxOXtqgafwTY4zBWMepvaN2eDhcEIDl32dCP0ZdyRQe3+xh/3BWbiWNxXnTn1MMk2cNM05Fj6LlUauqZs3hwmagvvc0OBO9M2ltDYg37j3v0jTgtxr7pgQ==", encrypt);
+        assertEquals("Nom1k4JskxFAx1BtBe1E778IjbC/eQ8k3E7UyWL36yy4nONLr+QsgQllSlpIEiJzkoFQLzXaVLGDQ6a5achCEVQixV9WylWAtMhh5kDohiBfes0X1jVlaKaiW8sK+H7sgGC6M+Umng/Ofd3CRMslTBJnVXsHCel3vqmgmzw1bIUUq7oIfy+qEsxpLouhP/lWw027+TzhVV1WWDtg95/ex/yJcoKBKFMQb6pujKWxgR2aOj5cDphPm3MWzZoln+fHdblMuzeSiDe4JVOVILQva4jDRaEEeM5gf5E05HdeyKQI3TjQVcPYFQR/E5NHXyQd7FKvQFpF4e0iuKlaWSmxaXFwN5Gyk1T/OAf7vReTKmjl68IdioVjuSBRsO2BklZIusJuL6VzEraoTe0Bdqm1Zv/3nbF8ORCT7YLNar0/d+RTXAsq5upubtw4TpjwH7UFkYSuGqWby0b8ypXNpQlXNjPoDoOzFS0SEuW47yEDAxk=", encrypt);
     }
 
 }
