@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.pajakku.eppt.model.Bupot;
 import com.pajakku.eppt.model.Key;
 import com.pajakku.eppt.model.Pasal;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,8 +14,9 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.Collections;
+import java.time.LocalDate;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 
@@ -28,27 +28,27 @@ public class CipherInitializerTest {
     public void before() {
         Bupot bp21Tf = Bupot.builder()
                 .nama("BP_21_TF")
-                .count(1000)
+                .count(100)
                 .build();
 
         Bupot bp21F = Bupot.builder()
                 .nama("BP_21_F")
-                .count(1000)
+                .count(100)
                 .build();
 
         Bupot bp21A1 = Bupot.builder()
                 .nama("BP_21_A1")
-                .count(1000)
+                .count(100)
                 .build();
 
         Bupot bp21A2 = Bupot.builder()
                 .nama("BP_21_A2")
-                .count(1000)
+                .count(100)
                 .build();
 
         Bupot bp21SatuMasa = Bupot.builder()
                 .nama("BP_21_SATU_MASA")
-                .count(1000)
+                .count(100)
                 .build();
 
         Pasal pph21 = Pasal.builder()
@@ -57,10 +57,10 @@ public class CipherInitializerTest {
                 .build();
 
         key = Key.builder()
-                .npwp("317109825721000")
-                .name("PT.Tisoledat")
+                .npwp("010016293913002")
+                .name("PT.Qiwary Solusi Finansiaku")
                 .sn("VWxdY8RNhglVEPi4FqmLwoY47CqtfeqIEuBEsAQFCpv6ZMIVCVnDnsO1m486bcOk")
-                .expiredAt("28/02/2018")
+                .expiredAt("2018-04-13")
                 .pasal(Collections.singletonList(pph21))
                 .build();
     }
@@ -71,7 +71,11 @@ public class CipherInitializerTest {
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
         String encrypt = initializer.encrypt(cipher, toJson);
-        assertEquals("Nom1k4JskxFAx1BtBe1E778IjbC/eQ8k3E7UyWL36yy4nONLr+QsgQllSlpIEiJzkoFQLzXaVLGDQ6a5achCEVQixV9WylWAtMhh5kDohiBfes0X1jVlaKaiW8sK+H7sgGC6M+Umng/Ofd3CRMslTBJnVXsHCel3vqmgmzw1bIUUq7oIfy+qEsxpLouhP/lWw027+TzhVV1WWDtg95/ex/yJcoKBKFMQb6pujKWxgR2aOj5cDphPm3MWzZoln+fHdblMuzeSiDe4JVOVILQva4jDRaEEeM5gf5E05HdeyKQI3TjQVcPYFQR/E5NHXyQd7FKvQFpF4e0iuKlaWSmxaXFwN5Gyk1T/OAf7vReTKmjl68IdioVjuSBRsO2BklZIusJuL6VzEraoTe0Bdqm1Zv/3nbF8ORCT7YLNar0/d+RTXAsq5upubtw4TpjwH7UFkYSuGqWby0b8ypXNpQlXNjPoDoOzFS0SEuW47yEDAxk=", encrypt);
+        System.out.println(encrypt);
+
+//        assertEquals("Nom1k4JskxFAx1BtBe1E778IjbC/eQ8k3E7UyWL36yy4nONLr+QsgQllSlpIEiJzkoFQLzXaVLGDQ6a5achCEVQixV9WylWAtMhh5kDohiBfes0X1jVlaKaiW8sK+H7sgGC6M+Umng/Ofd3CRMslTBJnVXsHCel3vqmgmzw1bIUUq7oIfy+qEsxpLouhP/lWw027+TzhVV1WWDtg95/ex/yJcoKBKFMQb6pujKWxgR2aOj5cDphPm3MWzZoln+fHdblMuzeSiDe4JVOVILQva4jDRaEEeM5gf5E05HdeyKQI3TjQVcPYFQR/E5NHXyQd7FKvQFpF4e0iuKlaWSmxaXFwN5Gyk1T/OAf7vReTKmjl68IdioVjuSBRsO2BklZIusJuL6VzEraoTe0Bdqm1Zv/3nbF8ORCT7YLNar0/d+RTXAsq5upubtw4TpjwH7UFkYSuGqWby0b8ypXNpQlXNjPoDoOzFS0SEuW47yEDAxk=", encrypt);
     }
+
+
 
 }
