@@ -14,11 +14,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
 
 public class CipherInitializerTest {
 
@@ -28,27 +24,27 @@ public class CipherInitializerTest {
     public void before() {
         Bupot bp21Tf = Bupot.builder()
                 .nama("BP_21_TF")
-                .count(100)
+                .count(1000)
                 .build();
 
         Bupot bp21F = Bupot.builder()
                 .nama("BP_21_F")
-                .count(100)
+                .count(1000)
                 .build();
 
         Bupot bp21A1 = Bupot.builder()
                 .nama("BP_21_A1")
-                .count(100)
+                .count(1000)
                 .build();
 
         Bupot bp21A2 = Bupot.builder()
                 .nama("BP_21_A2")
-                .count(100)
+                .count(1000)
                 .build();
 
         Bupot bp21SatuMasa = Bupot.builder()
                 .nama("BP_21_SATU_MASA")
-                .count(100)
+                .count(1000)
                 .build();
 
         Pasal pph21 = Pasal.builder()
@@ -56,12 +52,29 @@ public class CipherInitializerTest {
                 .bupot(Arrays.asList(bp21Tf, bp21F, bp21A1, bp21A2, bp21SatuMasa))
                 .build();
 
+        //pph 23
+        Bupot bp23 = Bupot.builder()
+                .nama("BP_23")
+                .count(1000)
+                .build();
+
+        Bupot bp26 = Bupot.builder()
+                .nama("BP_26")
+                .count(1000)
+                .build();
+
+        Pasal pph23 = Pasal.builder()
+                .name("PPH23")
+                .bupot(Arrays.asList(bp23, bp26))
+                .build();
+        //end pph 23
+
         key = Key.builder()
-                .npwp("010016293913002")
-                .name("PT.Qiwary Solusi Finansiaku")
-                .sn("VWxdY8RNhglVEPi4FqmLwoY47CqtfeqIEuBEsAQFCpv6ZMIVCVnDnsO1m486bcOk")
+                .npwp("211006879721001")
+                .name("PT.Mitra Pajakku")
+                .sn("4fca151c-d590-41c5-a799-e4f55906b60c")
                 .expiredAt("2018-04-13")
-                .pasal(Collections.singletonList(pph21))
+                .pasal(Arrays.asList(pph21, pph23))
                 .build();
     }
 
@@ -73,9 +86,7 @@ public class CipherInitializerTest {
         String encrypt = initializer.encrypt(cipher, toJson);
         System.out.println(encrypt);
 
-//        assertEquals("Nom1k4JskxFAx1BtBe1E778IjbC/eQ8k3E7UyWL36yy4nONLr+QsgQllSlpIEiJzkoFQLzXaVLGDQ6a5achCEVQixV9WylWAtMhh5kDohiBfes0X1jVlaKaiW8sK+H7sgGC6M+Umng/Ofd3CRMslTBJnVXsHCel3vqmgmzw1bIUUq7oIfy+qEsxpLouhP/lWw027+TzhVV1WWDtg95/ex/yJcoKBKFMQb6pujKWxgR2aOj5cDphPm3MWzZoln+fHdblMuzeSiDe4JVOVILQva4jDRaEEeM5gf5E05HdeyKQI3TjQVcPYFQR/E5NHXyQd7FKvQFpF4e0iuKlaWSmxaXFwN5Gyk1T/OAf7vReTKmjl68IdioVjuSBRsO2BklZIusJuL6VzEraoTe0Bdqm1Zv/3nbF8ORCT7YLNar0/d+RTXAsq5upubtw4TpjwH7UFkYSuGqWby0b8ypXNpQlXNjPoDoOzFS0SEuW47yEDAxk=", encrypt);
     }
-
 
 
 }
