@@ -15,6 +15,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.UUID;
 
 public class CipherInitializerTest {
 
@@ -43,7 +44,7 @@ public class CipherInitializerTest {
 
         Bupot bp21SatuMasa = Bupot.builder()
                 .nama("BP_21_SATU_MASA")
-                .count(5)
+                .count(999999)
                 .build();
 
         Pasal pph21 = Pasal.builder()
@@ -81,6 +82,7 @@ public class CipherInitializerTest {
                 .build();
 
         Key key = Key.builder()
+                .id(UUID.randomUUID().toString())
                 .npwp("010016293527011")
                 .name("PT.Mitra Pajakku")
                 .sn("4bd1f39b-028e-4336-8fa2-df8923f1d283")

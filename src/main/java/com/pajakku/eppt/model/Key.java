@@ -18,6 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Key {
 
+    private String id;
+
     private String npwp;
 
     private String name;
