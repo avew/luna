@@ -19,32 +19,33 @@ import java.util.UUID;
 
 public class CipherInitializerTest {
 
+    public static Integer count = 100;
 
     @Test
     public void testEncrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         Bupot bp21Tf = Bupot.builder()
                 .nama("BP_21_TF")
-                .count(999999)
+                .count(count)
                 .build();
 
         Bupot bp21F = Bupot.builder()
                 .nama("BP_21_F")
-                .count(999999)
+                .count(count)
                 .build();
 
         Bupot bp21A1 = Bupot.builder()
                 .nama("BP_21_A1")
-                .count(999999)
+                .count(count)
                 .build();
 
         Bupot bp21A2 = Bupot.builder()
                 .nama("BP_21_A2")
-                .count(999999)
+                .count(count)
                 .build();
 
         Bupot bp21SatuMasa = Bupot.builder()
                 .nama("BP_21_SATU_MASA")
-                .count(999999)
+                .count(count)
                 .build();
 
         Pasal pph21 = Pasal.builder()
@@ -55,12 +56,12 @@ public class CipherInitializerTest {
         //pph 23
         Bupot bp23 = Bupot.builder()
                 .nama("BP_23")
-                .count(999999)
+                .count(count)
                 .build();
 
         Bupot bp26 = Bupot.builder()
                 .nama("BP_26")
-                .count(999999)
+                .count(count)
                 .build();
 
         Pasal pph23 = Pasal.builder()
@@ -72,7 +73,7 @@ public class CipherInitializerTest {
         //pph 23
         Bupot bp4a2 = Bupot.builder()
                 .nama("BP_4A2")
-                .count(999999)
+                .count(count)
                 .build();
 
 
@@ -83,8 +84,8 @@ public class CipherInitializerTest {
 
         Key key = Key.builder()
                 .id(UUID.randomUUID().toString())
-                .npwp("010016293527011")
-                .name("PT.Mitra Pajakku")
+                .npwp("010016293527001")
+                .name("PT.Test 1")
                 .sn("4bd1f39b-028e-4336-8fa2-df8923f1d283")
                 .expiredAt("2018-12-30")
                 .pasal(Arrays.asList(pph21, pph23, pph4a2))
@@ -94,7 +95,7 @@ public class CipherInitializerTest {
         String toJson = new Gson().toJson(key);
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
-        String encrypt = initializer.encrypt(cipher, toJson);
+        String encrypt = initializer.encrypt(cipher, "1000");
         System.out.println(encrypt);
 
     }
@@ -103,7 +104,7 @@ public class CipherInitializerTest {
     public void testDecrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.DECRYPT_MODE);
-        String decrypt = initializer.decrypt(cipher, "rjKFPnpFxF2F1G7QlNHNUXr3+7c62kH0BzFJGRqxEP8lwmNvUNjdVUw0icaSSyiyaXqszk9I4wPVbSwVBCrQDHqpdrbhPo2w83Ijv6nFOAcHqQpPGhuP007Pm1sZetf11fJqCKnzNkbXcu4FAAl5PYdjPcaA004zjNu8wBjaaojJu1SAYsQx3BdSQNLFTc61+w+TOJAQZM7NgE5YQctNO8XBKKGP2YTnIJJU+Uis6D297odE6V0BujOLQ+WSy0e9PPKSfYUrEZr5HzdjPtvr0y6t+Tg1iH0iSDdGgtwrsT4oEh0izeiek/aIfrjLjpJbunvuAR5xqZ0yRrgzmpzNJsi7QWDVWOtOikcUXOL2+pewF3xOy5tRSn03e7bq1tBj7QSySAeflDiRGVNSM2KcxJEbVnAyig9kRtNgLVW7BdquKoSm9Sg+MHpRrbzPSjyh+CKIsQ82/QY3KbDKGwpN19TnERpDbTPuaqHDDfIRartkW3gjCW7xfMpzKd54pS8g7Ln1T9fMO48U830Mi92O257R2EGW4+eXECV5oWJ4IpUFHkGN1Eu1mQeyaFg/nHkHU+ED3Z7suCb7Of7f75rd7H/aretQv8zk3lW6+7fZ3wiV/eREr7aGvYXrwbQrqDu9DEFNkVZig0VaEySeIjxq8g==");
+        String decrypt = initializer.decrypt(cipher, "Q1S/zrkMF3gAyvyT1iVTbfTmkg3ZEmTjVQubmMfGBFixasZYHpgZLesIiuIYmd+J9qCAkwyBg494k5yz4eMyErHIo19tiY5QuL6O2q8xYqVcKzf/N5UCBjxaMbAp2TYdvP5TQqR5F7idkizrRZZnMtT6DCstoBtOtroD7l9OedLvNTFoecoWIvr++Y6dr3kgGZV5ZsbdG2pz3ev3s1M/cGxYeF+id2nkeUysv0NxEqLeQUX260aPmlsPilRKzgr6YwYZ8v1I0lHPtomTcoTwGNN4UgytEOoDF3aPXA8JxoBv2Ri3QaGSVbz79kS2qwdwlZGRWx87Ydfm8f2yxkw+gvie7ppx9BoWvWtrv7w61JLgfzlTS2aSbpQUxCNGyVLZTIifpLuzNI5kBdv7gY9fypTuNafDLB1taB941BUSnSXlzzu/+OdprpQ3vm1yq4il9/U/CVApHAKmpdp9JUnsZciclCi0bEUocm6nVU5EK8x7LJTMsBvgs9AG8Ags9iJZM4RcarxvYC0YQZZb/A9AmG/9V2veHe/CgXEAgmYwmsq7TnX3sVob0R323YQAU8UfzgCMsRuAT4ZOZcsmLh+gLJHL/LRpMCeGDtCrtuJ8TSmi3/3D+QDPWEpK6O9QRJFUrCb1vE1RKalZOc1hcIz6CgGYH/8VtUew19ombQMqAGbT+gESpzw62SeLMCvVTIJeYSQkSrR+VPFTWctrsRLCe6Dm7f5/+hC7imdMDEGdMMY=");
         System.out.println(decrypt);
     }
 
