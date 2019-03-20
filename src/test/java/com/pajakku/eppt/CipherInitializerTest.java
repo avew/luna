@@ -84,22 +84,48 @@ public class CipherInitializerTest {
                 .bupot(Collections.singletonList(bp22))
                 .build();
 
-        Key key = Key.builder()
-                .id(UUID.randomUUID().toString())
-                .npwp("666794755439000")
-                .name("PT.Intan Telor")
-                .sn("4bd1f39b-028e-4336-8fa2-df8923f1d283")
-                .expiredAt("2018-12-30")
-                .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22))
-                .build();
+
+        //pph 15
+        Bupot bp15 = Bupot.builder()
+            .nama("BP_15")
+            .build();
 
 
-        String toJson = new Gson().toJson(key);
+        Pasal pph15 = Pasal.builder()
+            .name("PPH15")
+            .bupot(Collections.singletonList(bp15))
+            .build();
+
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
-        String encrypt = initializer.encrypt(cipher, toJson);
-        System.out.println(encrypt);
 
+        String serial = "5c24f3e7-6327-413f-acc8-252c067d4984";
+
+        Key key_023986557423001 = Key.builder()
+            .id(UUID.randomUUID().toString())
+            .npwp("023986557423001")
+            .name("PT. MITRA PAJAKKU")
+            .sn(serial)
+            .expiredAt("2018-12-30")
+            .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
+            .build();
+
+        String json_023986557423001 = new Gson().toJson(key_023986557423001);
+        String encrypt_023986557423001 = initializer.encrypt(cipher, json_023986557423001);
+        System.out.println("023986557423001: " + encrypt_023986557423001);
+
+        Key key_722121746439000 = Key.builder()
+            .id(UUID.randomUUID().toString())
+            .npwp("722121746439000")
+            .name("PT. CABANG HERU")
+            .sn(serial)
+            .expiredAt("2018-12-30")
+            .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
+            .build();
+
+        String json_722121746439000 = new Gson().toJson(key_722121746439000);
+        String encrypt_722121746439000 = initializer.encrypt(cipher, json_722121746439000);
+        System.out.println("722121746439000: " + encrypt_722121746439000);
     }
 
     @Test
