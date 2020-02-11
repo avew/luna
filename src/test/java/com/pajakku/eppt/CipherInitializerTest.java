@@ -99,14 +99,14 @@ public class CipherInitializerTest {
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipher = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
 
-        String serial = "5c24f3e7-6327-413f-acc8-252c067d4984";
+        String serial = "dbb546d3-fc73-429d-acd0-b7f3a991bbc8";
 
         Key key_023986557423001 = Key.builder()
             .id(UUID.randomUUID().toString())
             .npwp("023986557423001")
             .name("PT. MITRA PAJAKKU")
             .sn(serial)
-            .expiredAt("2018-12-30")
+            .expiredAt("2030-12-30")
             .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
             .build();
 
@@ -119,13 +119,26 @@ public class CipherInitializerTest {
             .npwp("722121746439000")
             .name("PT. CABANG HERU")
             .sn(serial)
-            .expiredAt("2018-12-30")
+            .expiredAt("2030-12-30")
             .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
             .build();
 
         String json_722121746439000 = new Gson().toJson(key_722121746439000);
         String encrypt_722121746439000 = initializer.encrypt(cipher, json_722121746439000);
         System.out.println("722121746439000: " + encrypt_722121746439000);
+
+        Key key_000000000000000 = Key.builder()
+            .id(UUID.randomUUID().toString())
+            .npwp("010000000000000")
+            .name("PT. TEST")
+            .sn(serial)
+            .expiredAt("2030-12-30")
+            .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
+            .build();
+
+        String json_000000000000000 = new Gson().toJson(key_000000000000000);
+        String encrypt_000000000000000 = initializer.encrypt(cipher, json_000000000000000);
+        System.out.println("000000000000000: " + encrypt_000000000000000);
     }
 
     @Test
@@ -134,7 +147,7 @@ public class CipherInitializerTest {
 
         LunaInitializer initializer = new LunaInitializer();
         Cipher cipherDecrypt = initializer.prepareAndInitCipher(Cipher.DECRYPT_MODE);
-        String decrypt = initializer.decrypt(cipherDecrypt, "oZCkG0ufoEdxkzR7jD+6vQ==");
+        String decrypt = initializer.decrypt(cipherDecrypt, "6te+VPFZQMeJrYgVKDU6LCoWW8T4tJGzaq7SYkyfIpi0xDOw/9Gst118h+nVO06nrSYJGlsDvnLEz64J6xf8KwELF6CzZi6i0//BvJQ695aU+ti16a9sTVJfOKN67DqhXwFUxKYuavD3+GGE7YRd79/XOmvrF+u9tlJDGqH75wOk7waGfn+7FHv46tO5KToHSRQ8FJYA1sguHz5SixLMH6B/+ho2GIXSfO+cCeAWmEWQkB9+V15GrOj1u+JjFjgfFlAdqnoxbATlPkQnIX54TuLOTXX7h+udbvl7HpYk7PY3IMLAkvSKXsLG5OF5+ILPRVQgx1EFJLbgh0aDpPZ4VUWkG3XA9uYomRvafZMZdfT99EGf7B5Bbi4fr83iu/6r3TY93sABsFOaBEu0A2gInkb3s2aMSRdWetnwDilJ42Ak8fcCL4eJQCmCIo3T3lbTEZXcVnrIdNAiafgRfiA344RRAE9G5k+0pXtaAa0yiOE4RJVWWOea1LAGqntVHnrcnjX9iLR8BD7xISjfCSk3Tvz5yYMKG48TuqtjvDrAZZdZoqiMtxj3WZYjSxz188M+3KpkHG6aZgVNFPNhvS+dyP9pm3zmbB10OoEYtREXtf15MqccbulZS1R5W7K2/XeXOGxUAngcFwhTUwvx+c0bb/laSMGY8RKESpdSpRSLfeeP1WyX8l+xJnGQ5l1caC5pIwbiykAx2abK9irNEL77CwV8zrcnXx8PP5OGuX2mVS3hYJhy5RskeOdUcm+JxpLG52jxbXwbJEutOWCA49dJZMFfCTqJVltIV88l7u8irtV3VJQ9UafloBK5Qc+ZDagV");
         System.out.println(decrypt);
 
         Cipher cipherEncrypt = initializer.prepareAndInitCipher(Cipher.ENCRYPT_MODE);
