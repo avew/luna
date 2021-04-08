@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Builder
@@ -24,6 +25,6 @@ public class UnifikasiKeyDTO {
     private Boolean pemungut = Boolean.FALSE;
     private LocalDate expiredDate;
     private String serialNumber;
-    private String licenseKeys;
+    private List<String> licenseKeys;
 
 }
