@@ -16,5 +16,6 @@ public class UnifikasiCustomFeatureDTO {
 
     private int companyId;
     private List<String> customFeatures;
+    private String expiredDate;
 
 }
