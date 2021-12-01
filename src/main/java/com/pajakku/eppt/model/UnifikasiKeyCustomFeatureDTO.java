@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UnifikasiCustomFeatureDTO {
+public class UnifikasiKeyCustomFeatureDTO {
 
     private int companyId;
     private List<String> customFeatures;
