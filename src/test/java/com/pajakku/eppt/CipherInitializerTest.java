@@ -251,7 +251,8 @@ public class CipherInitializerTest {
 //        System.out.println(key.getNpwp());
 
         decrypt = initializer.decrypt(cipherDecrypt, "sApZuhCIBaH0Wz14MQKBmyOXjjeYUl1FZaDPpthtfxP933cONpbWBE3YUu6bbNRph9fOGKJm6FlGr8BRHDfXSXO3XN7gN+6OBQWsNdG3CIZKFipEh806ZF1wjYyDnsa8");
-        decrypt = initializer.decrypt(cipherDecrypt, "581 481 919");
+        decrypt = initializer.decrypt(cipherDecrypt, "rjKFPnpFxF2F1G7QlNHNUZeR4wqoRAysCsU6+G2iHyfYQvjW0Dk7bDtDr38Y1yGr8Rfbw4bL9ISZlEjGj8HhwnOKm0ok1pFH5micAUb4EyqDueWJTczlbyO1zX7mCuc0U4qg/EY4LTU+3WMSEPV7r6i8jsZHTYfTuUtCu3dNXj2umzb49FAqJvfrK5XdU2dp7gkgLx9OjRMKZdSVmDaiuDc3n6WCed+Z1AWIubc4BmO1ntS8fn2ECzKjlUOvERSimB1R/zx9PVkF/jyzQRFlopGGlnQx9AjqI5OvZkzp5LkNrkvRAuXfLemG0A051ovgcrIZtOMHfKCdbLG3ZDKckkSpvdCd8G4n+NajfVAI/OUAXBuggcEKpXmzh8QxFMzWsxVX3Wr9VxVdViHAgpVShW1KhH2j6szdAzeMT/AXRpq4MQolHnZB6ndskjtPkt/Jb+8vkppoGsNvZRHY8PqHx/wgNDOGTXTfuK7nXofchqCNcFHT1MgjToDKBxDXpzZQP+vzDF9nA5I5YLi3tnWKvbeUrdpLwDY/53lX5YRrsA8=");
+        decrypt = initializer.decrypt(cipherDecrypt, "WDR+H1s9GKp9rZ0MGAbS9js1whEKBYbpp/aV3W0rKDhv6YnglLv0Yu7TxkO8mZ9cfMgZDh/Nql2MBb3icRURh2uRIzbZOE4ebmg9cXhWtyyMen52uncMeSE/PStYyQXnqWzQxoMlbi4OlKHJVHk6YlFuGZQ0T2pF557I3O2Zd0WqSFoyZh0ft7YbxhXKnI6mq08Q9yMhFkl6DRtJsNMAs4PVIDgQtZrMHtSxrZgb9toe4Vz3kKI2zQX0xZ1BqB0k/rCXyYNjB8TcoJIScwxazpihHhzaVM6h1AeoX26PuD8b2MMgt03IrrtcReHdyvZt4lx5u7yIE0kVzK7ZP4dIb6XBwi6RpOCPs5lsfNIUUCJhykHM/5ctjmdUGDa3k4yrZjDyBXCLXhPiaVJ2TVb+52xCOtoQZIMg5AAtHdIiyXP6PAl5Y9M84FCInqREAg768hIVq/ggYCW0wyLYz5xIBpMo0vWN8Q4ckGALaCOZ2qZuE3wFRfawv0NqB2I+eQVw5z+32i7j0qNO2rC5CvEfPhc4Z8Isg6W8KS7mQcfo8cuK6Q3xtPVbD45L1kK1L0l/");
         System.out.println(decrypt);
     }
 
