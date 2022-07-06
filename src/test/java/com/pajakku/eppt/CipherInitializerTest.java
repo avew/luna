@@ -5,15 +5,22 @@ import com.pajakku.eppt.model.Bupot;
 import com.pajakku.eppt.model.Key;
 import com.pajakku.eppt.model.MinioCredential;
 import com.pajakku.eppt.model.Pasal;
+import org.apache.commons.codec.DecoderException;
 import org.junit.Test;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.UUID;
 import java.util.*;
 
 public class CipherInitializerTest {
@@ -50,12 +57,21 @@ public class CipherInitializerTest {
 				.bupot(Arrays.asList(bp21Tf, bp21F, bp21A1, bp21A2, bp21SatuMasa))
 				.build();
 
+        //pph 23
+        Bupot bp23 = Bupot.builder()
+                .nama("BP_23")
+                .count(5000)
+                .build();
 		//pph 23
 		Bupot bp23 = Bupot.builder()
 				.nama("BP_23")
 				.count(300)
 				.build();
 
+        Bupot bp26 = Bupot.builder()
+                .nama("BP_26")
+                .count(5000)
+                .build();
 		Bupot bp26 = Bupot.builder()
 				.nama("BP_26")
 				.count(300)
@@ -67,6 +83,11 @@ public class CipherInitializerTest {
 				.build();
 		//end pph 23
 
+        //pph 4a2
+        Bupot bp4a2 = Bupot.builder()
+                .nama("BP_4A2")
+                .count(5000)
+                .build();
 		//pph 4a2
 		Bupot bp4a2 = Bupot.builder()
 				.nama("BP_4A2")
@@ -80,6 +101,11 @@ public class CipherInitializerTest {
 				.build();
 
 
+        //pph 22
+        Bupot bp22 = Bupot.builder()
+                .nama("BP_22")
+                .count(5000)
+                .build();
 		//pph 22
 		Bupot bp22 = Bupot.builder()
 				.nama("BP_22")
@@ -93,6 +119,11 @@ public class CipherInitializerTest {
 				.build();
 
 
+        //pph 15
+        Bupot bp15 = Bupot.builder()
+            .nama("BP_15")
+            .count(5000)
+            .build();
 		//pph 15
 		Bupot bp15 = Bupot.builder()
 				.nama("BP_15")
@@ -124,6 +155,30 @@ public class CipherInitializerTest {
 		String encrypt_023986557423001 = initializer.encrypt(cipher, json_023986557423001);
 		System.out.println("023986557423001: " + encrypt_023986557423001);
 
+        serial = "e3b914de-0f1a-45c6-a064-ab7e9fe3db61";
+        serial = "cf783395-0187-40e2-8d25-33b43bae770d";
+
+        Key key_027506971125002 = Key.builder()
+            .id(UUID.randomUUID().toString())
+            .npwp("027506971125002")
+            .name("PT TIGA DUA DELAPAN")
+            .sn(serial)
+            .expiredAt("2022-04-29")
+            .pasal(Arrays.asList(pph23, pph4a2, pph22, pph15))
+            .build();
+
+        String json_027506971125002 = new Gson().toJson(key_027506971125002);
+        String encrypt_027506971125002 = initializer.encrypt(cipher, json_027506971125002);
+        System.out.println("027506971125002: " + encrypt_027506971125002);
+
+        Key key_722121746439000 = Key.builder()
+            .id(UUID.randomUUID().toString())
+            .npwp("722121746439000")
+            .name("PT. CABANG HERU")
+            .sn(serial)
+            .expiredAt("2030-12-31")
+            .pasal(Arrays.asList(pph21, pph23, pph4a2, pph22, pph15))
+            .build();
 		Key key_722121746439000 = Key.builder()
 				.id(UUID.randomUUID().toString())
 				.npwp("722121746439000")
@@ -232,6 +287,9 @@ public class CipherInitializerTest {
 //		System.out.println(decrypt);
 	}
 
+        decrypt = initializer.decrypt(cipherDecrypt, "hlgdWsODqETpCB19sRed5q0dCXaku+YSTx9c6cGjPwf7sj65fUTQ9APYRGadYFBaJGkAk6JgMy/jtXVxkIbv+3oVqqQ4/1842fO1jRMikmLm0aKonRaSxc6cWfTEyddO2CW1WmaVFt6j8jKVVDjNl3E0eHehjql6TmPtasjiBo3Rnufug89F70s5w6P1fsbkgYg/BK42IpVigb4DxgahhfU40zOKKrUdCgkBXyo1IrfVhpaAY0UX0vSun7YM/9OLjcFrjax82VewnUDXYfSrarepVQhdrVQuk3lWWxdRlcgfBQR9VuCl6Z/uvIYr7fZYDKEEKYcpe2UHHpWbx1xCluwgzeDoofmMmzUXU7nfY0dKUYauEC5oHvwray1uOES5oUf/yiIIfzx3BeFTv6FRNVr+5Crn1N1NKtqTO5uu5ukp5UEO8vR+9CHtYGkXzCnlNsVzGRoB5uM8/2ABoCxisA==");
+        System.out.println(decrypt);
+    }
 	@Test
 	public void testEncryptString() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 
@@ -253,6 +311,16 @@ public class CipherInitializerTest {
 		map.put("npwp", "023586498331000");
 		map.put("membershipStartDate", "2021-12-31");
 		map.put("membershipEndDate", "2022-01-25");
+
+    @Test
+    public void testDecryptFile() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidKeySpecException, UnsupportedEncodingException, DecoderException {
+
+        File inputFile = new File("/media/pajakku-dev/Data/bceac90f-c8ac-441f-ac2a-8687fbb4cd1f/0239865570310001111202100F1132041218.mpk");
+        File outputFile = new File("/media/pajakku-dev/Data/bceac90f-c8ac-441f-ac2a-8687fbb4cd1f/0239865570310001111202100F1132041218.csv");
+        File decryptFile = DesedeInitializer.decryptFile(inputFile, outputFile);
+        System.out.println(decryptFile);
+
+    }
 
 		String encrypt = initializer.encrypt(cipher, new Gson().toJson(map));
 		System.out.println(encrypt);
