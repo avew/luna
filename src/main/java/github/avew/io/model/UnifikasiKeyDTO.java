@@ -1,4 +1,4 @@
-package com.pajakku.eppt.model;
+package github.avew.io.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SptEmetKeyDTO {
+public class UnifikasiKeyDTO {
 
     private String npwp;
     private String name;
@@ -22,10 +22,7 @@ public class SptEmetKeyDTO {
     private String phone;
     private String address;
     private String aliasName;
-
-    @Builder.Default
     private Boolean pemungut = Boolean.FALSE;
-
     private LocalDate expiredDate;
     private String serialNumber;
     private List<String> licenseKeys;

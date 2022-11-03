@@ -1,4 +1,4 @@
-package com.pajakku.eppt.model;
+package github.avew.io.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Spt1771KeyDTO {
+public class SptEmetKeyDTO {
 
     private String npwp;
     private String name;

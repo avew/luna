@@ -1,27 +1,17 @@
-package com.pajakku.eppt;
+package github.avew.io;
 
 import com.google.gson.Gson;
-import com.pajakku.eppt.model.Bupot;
-import com.pajakku.eppt.model.Key;
-import com.pajakku.eppt.model.MinioCredential;
-import com.pajakku.eppt.model.Pasal;
-import org.apache.commons.codec.DecoderException;
 import org.junit.Test;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.UUID;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CipherInitializerTest {
     @Test

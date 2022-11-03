@@ -1,4 +1,4 @@
-package com.pajakku.eppt.model;
+package github.avew.io.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

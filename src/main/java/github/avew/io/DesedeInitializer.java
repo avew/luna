@@ -1,4 +1,4 @@
-package com.pajakku.eppt;
+package github.avew.io;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
