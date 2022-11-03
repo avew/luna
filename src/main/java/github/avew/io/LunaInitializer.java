@@ -17,7 +17,7 @@ public class LunaInitializer {
 
     private static final String CIPHER_INSTANCE_NAME = "AES/CBC/PKCS5Padding";
     private static final String SECRET_KEY_ALGORITHM = "AES";
-    private String key = "7b016e5d87b046f3";
+    private String key = "DEFAULT";
 
     public LunaInitializer() {
     }
